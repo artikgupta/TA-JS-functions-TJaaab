@@ -81,10 +81,14 @@ getTable();
 
 function IsleapYear() {
   let year = +prompt("Enter a year");
-  if (year % 2 == 0) {
+  if (year % 400 === 0) {
+    alert(`${year} is a Leap year`);
+  } else if (year % 400 === 0) {
+    alert(`${year} is not a Leap year`);
+  } else if (year % 4 === 0) {
     alert(`${year} is a Leap year`);
   } else {
-    alert(`${year} is not a Leap year`);
+    alert(`${year} is  not a Leap year`);
   }
 }
 IsleapYear();
@@ -97,12 +101,11 @@ IsleapYear();
 
 */
 function getFactorial() {
-  let factorail = 0;
   let number = +prompt("Enter a number");
-  if (number <= 1) {
-    factorail = 1;
-  } else if (number > 1) {
-    number = number * number;
-    number++;
+  let factorial = 1;
+  for (let i = number; i <= 1; i--) {
+    factorial = factorial * i;
   }
+
+  alert(`The factorial of ${number} is ${factorial}`);
 }
