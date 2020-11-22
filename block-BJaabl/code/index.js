@@ -35,11 +35,10 @@ addTwoNumbers(10, "100"); // Alert Enter Valid Input
 */
 
 function addTwoNumbers(firstNum, secondNum) {
-  let sum = firstNum + secondNum;
-  if (typeof sum !== "number") {
+  if (typeof firstNum !== "number" || typeof secondNum !== "number") {
     return "Enter a valid input";
   } else {
-    return sum;
+    return firstNum + secondNum;
   }
 }
 
@@ -59,7 +58,7 @@ calc(20, 10, 'mul'); // 200
 
 function calc(numA, numB, operation) {
   if (typeof numA != "number" || typeof numB != "number") {
-    return "Enter a valid input";
+    alert("Enter a valid input");
   } else if (operation === "add") {
     return numA + numB;
   } else if (operation === "sub") {
@@ -81,15 +80,11 @@ isLeapYear(2001); // false
 */
 
 function isLeapYear(year) {
-  if (year % 400 === 0) {
-    return true;
-  } else if (year % 100 === 0) {
-    return false;
-  } else if (year % 4 === 0) {
-    return true;
-  } else {
-    return false;
-  }
+  if (year % 400 === 0) return true;
+
+  if (year % 100 === 0) return false;
+
+  return year % 4 === 0;
 }
 
 /*
@@ -97,14 +92,13 @@ function isLeapYear(year) {
 */
 
 function getFactorial(number) {
-  let factorial = 0;
-  if (number <= 1) {
-    factorial = 1;
-  } else if (factorial > 1) {
-    for (let i = number; i >= 1; i--) {
-      factorial = factorial * number;
-    }
+  let factorial = 1;
+
+  for (let i = number; i >= 1; i--) {
+    factorial = factorial * number;
   }
+
+  return factorial;
 }
 
 getFactorial();
