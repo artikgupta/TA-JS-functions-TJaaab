@@ -8,9 +8,8 @@
   * [ ] Add an additional argument to the function that takes the conversion rate of human to dog years.
 */
 
-function calculateDogAge(age) {
-  let dogAge = 7;
-  return age * dogAge;
+function calculateDogAge(dogAge, conversion = 7) {
+  return dogAge * conversion;
 }
 
 /*
@@ -20,7 +19,11 @@ function calculateDogAge(age) {
   * [ ] Return the total number of movie you will watch.
 */
 
-function calculateMoviesToWatch(age, numberOfMovies) {}
+function calculateMoviesToWatch(age, numberOfMovies) {
+  const MAX_AGE = 80;
+  let totalNumberOfMovies = (MAX_AGE - age) * 12 * 4 * numberOfMovies;
+  return totalNumberOfMovies;
+}
 
 /*
 3. 🎖Create a function called celsiusToFahrenheit:
@@ -28,18 +31,20 @@ function calculateMoviesToWatch(age, numberOfMovies) {}
   * [ ] Convert it to fahrenheit and return "NN°F is NN°C"
 */
 
-function celsiusToFahrenheit(celsius) {
-  return (celsius * 9) / 5 + 32;
+function celsiusToFahrenheit(temp) {
+  let fahrenheit = (temp * 9) / 5 + 32;
+  return `${temp}°F is ${fahrenheit}°C`;
 }
 
 /*
 4. 🎖Create a function called fahrenheitToCelsius:
-  * [ ] Accepts fahrenheit temperature as argument.
-  * [ ] Convert it to celsius and return "NN°F is NN°C"
+* [ ] Accepts fahrenheit temperature as argument.
+* [ ] Convert it to celsius and return "NN°F is NN°C"
 */
 
-function fahrenheitToCelsius(fahrenheit) {
-  return ((fahrenheit - 32) * 5) / 9;
+function fahrenheitToCelsius(temp) {
+  let celsius = ((temp - 32) * 5) / 9;
+  return `${temp}°F is ${celsius}°C`;
 }
 
 /*
@@ -70,14 +75,14 @@ and return sum or product of 1,…,n. If user enters any other value than `sum` 
 */
 
 function sumOrProductOfN(n, operation) {
-  let add = 0;
-  let multiply = 1;
   if (operation === "sum") {
+    let add = 0;
     for (let i = 0; i <= n; i++) {
       add = add + i;
     }
     return add;
   } else if (operation === "product") {
+    let multiply = 1;
     for (let i = 1; i <= n; i++) {
       multiply = multiply * i;
     }
@@ -133,7 +138,5 @@ min(0, -10);
 */
 
 function typeCheck(value) {
-  if (typeof value === "number") {
-    return "number";
-  }
+  return typeof value;
 }
